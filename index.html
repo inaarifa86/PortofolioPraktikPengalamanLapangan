@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio PPG Calon Guru IPS 2026 - Ina Arifa</title>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f5efe6;
+            --bg-card: #ffffff;
+            --primary-color: #6b4423;
+            --primary-hover: #523318;
+            --accent-color: #8c5a2b;
+            --text-dark: #2c221e;
+            --text-muted: #6e6259;
+            --border-color: #e2d7cd;
+            --shadow: 0 10px 30px rgba(107, 68, 35, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(245, 239, 230, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-item button {
+            background: none;
+            border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-item button:hover, .nav-item button.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        /* MAIN CONTENT VIEWS */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BERANDA HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            background: linear-gradient(rgba(44, 34, 30, 0.65), rgba(44, 34, 30, 0.75)), 
+                        url('https://uny.ac.id/sites/default/files/2024-02/Kumbara%20Rektorat%20UNY_0.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #e0d8d0;
+        }
+
+        /* DASHBOARD GRID ON BERANDA */
+        .dashboard-section {
+            max-width: 1200px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.15);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-main);
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .card-action {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* MAPS SECTION */
+        .map-container {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .map-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-header {
+            padding: 20px 25px;
+            background: #fcf9f5;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .map-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .btn-map:hover {
+            background: var(--primary-hover);
+            color: #ffffff;
+        }
+
+        /* INNER CONTENT STYLES */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        /* TAB NAVIGATION FOR CYCLES */
+        .cycle-tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        /* CARD CONTAINERS FOR CONTENT */
+        .content-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .profile-flex {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 220px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            background: #e2d7cd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .quote-box {
+            background: #fcf9f5;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .meta-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .meta-list li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .meta-list strong {
+            width: 180px;
+            color: var(--primary-color);
+        }
+
+        /* ARTIFACT LINKS GRID */
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .artifact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fcf9f5;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .artifact-link i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .artifact-link:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .artifact-link:hover i {
+            color: #ffffff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: #d1c7bd;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Can be expanded for mobile drawer */
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .profile-flex {
+                flex-direction: column;
+            }
+            .profile-avatar {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Ina Arifa | PPG IPS 2026</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><button onclick="switchView('beranda')" id="btn-beranda" class="active">Beranda</button></li>
+                <li class="nav-item"><button onclick="switchView('profil')" id="btn-profil">Profil</button></li>
+                <li class="nav-item"><button onclick="switchView('pembelajaran')" id="btn-pembelajaran">Pembelajaran</button></li>
+                <li class="nav-item"><button onclick="switchView('artefak')" id="btn-artefak">Artefak</button></li>
+                <li class="nav-item"><button onclick="switchView('refleksi')" id="btn-refleksi">Refleksi</button></li>
+                <li class="nav-item"><button onclick="switchView('uts-uas')" id="btn-uts-uas">UTS & UAS</button></li>
+                <li class="nav-item"><button onclick="switchView('non-mengajar')" id="btn-non-mengajar">Non-Mengajar</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- ================= BERANDA VIEW ================= -->
+        <section id="view-beranda" class="page-view active">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="hero-badge">Jurnal Praktik Pengalaman Lapangan (PPL) - Mandiri</span>
+                    <h1>Portofolio Pendidikan Profesi Guru<br>Calon Guru IPS Tahun 2026</h1>
+                    <p>Ina Arifa | Program Studi Pendidikan IPS - Universitas Negeri Yogyakarta<br>Lokasi Praktik: SMP Negeri 15 Yogyakarta</p>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="grid-cards">
+                    <div class="menu-card" onclick="switchView('profil')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            <h3>Profil Mahasiswa</h3>
+                            <p>Informasi lengkap tentang identitas, latar belakang pendidikan, filosofi, dan tujuan sebagai guru IPS profesional.</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="menu-card" onclick="switchView('pembelajaran')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                            <h3>Pembelajaran</h3>
+                            <p>Perjalanan pembelajaran struktural 4 Siklus Praktik Mengajar Mandiri dengan analisis pedagogis terperinci.</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="menu-card" onclick="switchView('artefak')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-folder-open"></i></div>
+                            <h3>Artefak Pembelajaran</h3>
+                            <p>Kumpulan karya, RPM, LKPD, media PPT, dan dokumentasi pendukung pembelajaran Siklus 1 hingga 4.</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="menu-card" onclick="switchView('refleksi')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <h3>Refleksi & Penilaian</h3>
+                            <p>Laporan penilaian komprehensif dan evaluasi otentik oleh Guru Pamong (Sulistiyani, S.Pd).</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="menu-card" onclick="switchView('uts-uas')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                            <h3>UTS & UAS</h3>
+                            <p>Dokumentasi video praktik pembelajaran terbaik beserta perangkat pembelajaran unggulan.</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="menu-card" onclick="switchView('non-mengajar')">
+                        <div>
+                            <div class="card-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                            <h3>Kegiatan Non-Mengajar</h3>
+                            <p>Deskripsi dan dokumentasi kegiatan manajerial, budaya sekolah 7 AIH, kepanitiaan, serta bakti sosial.</p>
+                        </div>
+                        <div class="card-action">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-card">
+                    <div class="map-header">
+                        <h3><i class="fa-solid fa-location-dot"></i> Lokasi PPL Terbimbing – PPG di SMP Negeri 15 Yogyakarta</h3>
+                        <p>Jl. Tegal Lempuyangan No.61, Bausasran, Danurejan, Kota Yogyakarta</p>
+                    </div>
+                    <div class="map-body">
+                        <p>Akses navigasi langsung lokasi tempat pelaksanaan Praktik Pengalaman Lapangan (PPL) Mandiri melalui Google Maps:</p>
+                        <a href="https://maps.app.goo.gl/VNixhfgtoToBC8mM6" target="_blank" class="btn-map">
+                            <i class="fa-solid fa-map-location-dot"></i> Buka Navigasi Peta SMP N 15 Yogyakarta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROFIL VIEW ================= -->
+        <section id="view-profil" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Profil Mahasiswa</h2>
+                    <p>Pendidikan Profesi Guru Calon Guru IPS Tahun 2026</p>
+                </div>
+
+                <div class="content-card">
+                    <div class="profile-flex">
+                        <div class="profile-avatar">
+                            <i class="fa-solid fa-user-large fa-4x"></i><br>
+                            [Foto Profil OK]
+                        </div>
+                        <div>
+                            <h3>Ina Arifa</h3>
+                            <p><strong>Mahasiswi PPG Calon Guru Ilmu Pengetahuan Sosial 2026</strong><br>Universitas Negeri Yogyakarta</p>
+                            
+                            <p style="margin-top: 15px;">
+                                Saya Ina Arifa, mahasiswi Program Profesi Guru (Calon Guru) Pendidikan IPS tahun 2026, berasal dari Borobudur, Magelang. Dikenal sebagai tempat berdirinya Candi Borobudur, warisan peradaban yang menyimpan jejak sejarah dan nilai luhur budaya, Borobudur mengajarkan bahwa setiap tempat memiliki cerita dan setiap warisan menyimpan pelajaran. Dari tanah yang kaya akan sejarah dan kearifan lokal ini, saya belajar bahwa ilmu tidak hanya ditemukan dalam buku, tetapi juga dalam kehidupan masyarakat dan lingkungan sekitar.
+                            </p>
+                            <p style="margin-top: 10px;">
+                                Sebagai calon guru Pendidikan IPS, saya ingin membawa semangat tersebut ke dalam pembelajaran: mengajak peserta didik memahami bahwa sejarah, geografi, dan kehidupan sosial bukanlah sesuatu yang jauh dari mereka, melainkan bagian dari lingkungan tempat mereka tumbuh. Sebab, pendidikan yang bermakna adalah pendidikan yang mampu menghubungkan pengetahuan dengan kehidupan nyata, sekaligus menumbuhkan kesadaran akan identitas dan tanggung jawab sebagai bagian dari masyarakat.
+                            </p>
+
+                            <div class="quote-box">
+                                “Dari tanah yang menyimpan jejak peradaban, tumbuh langkah untuk mencerdaskan masa depan.”
+                                <br><strong>— Ina Arifa, dari Bumi Borobudur, Magelang</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Inspirasi & Tujuan</h3>
+                    <br>
+                    <h4>Inspirasi</h4>
+                    <p>
+                        Menjadi guru bagi saya bukan sekadar profesi, melainkan sebuah tanggung jawab untuk terus belajar, beradaptasi, dan memberikan yang terbaik bagi murid. Saya menyadari bahwa peran guru tidak selalu mudah, karena dihadapkan pada berbagai tantangan, baik dari segi karakter murid maupun perkembangan zaman. Namun, justru dari situlah saya termotivasi untuk menjadi pendidik yang sabar, terbuka, dan mampu menciptakan pembelajaran yang bermakna. Saya ingin hadir sebagai guru yang tidak hanya menyampaikan materi, tetapi juga membimbing, mendengarkan dan membantu murid menemukan potensi terbaik dalam dirinya, sehingga mereka dapat tumbuh menjadi pribadi yang mandiri dan berkarakter.
+                    </p>
+                    <br>
+                    <h4>Tujuan</h4>
+                    <p>
+                        Agar dapat berkontribusi secara nyata dalam mencerdaskan kehidupan bangsa melalui pendidikan yang bermakna dan berpusat pada murid. Saya ingin membantu setiap murid mengembangkan potensi akademik maupun non akademik secara optimal, serta menanamkan nilai-nilai karakter seperti tanggung jawab, kejujuran, dan kerja sama. Selain itu, saya bertujuan menjadi pendidik yang adaptif terhadap perkembangan zaman, mampu menciptakan suasana belajar yang inklusif, serta membimbing murid agar memiliki keterampilan berpikir kritis, kreatif, dan siap menghadapi tantangan di masa depan.
+                    </p>
+
+                    <div class="quote-box">
+                        ”Belajar tanpa henti, bertumbuh tanpa batas.”
+                        <br><strong>— Ina Arifa</strong>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Karakter Guru Profesional yang Ingin Dibangun</h3>
+                    <br>
+                    <ul style="padding-left: 20px;">
+                        <li style="margin-bottom: 12px;"><strong>Sabar dan hadir sepenuhnya</strong> — memberikan perhatian tulus pada setiap peserta didik, tanpa memandang latar belakang atau kemampuan awalnya.</li>
+                        <li style="margin-bottom: 12px;"><strong>Berani berinovasi</strong> — tidak takut mencoba metode baru, berani gagal, dan bangkit dengan strategi yang lebih baik.</li>
+                        <li style="margin-bottom: 12px;"><strong>Adil dan inklusif</strong> — memastikan setiap murid mendapat kesempatan belajar yang setara, khususnya mereka yang berasal dari daerah dengan akses terbatas seperti latar belakang saya sendiri.</li>
+                        <li style="margin-bottom: 12px;"><strong>Kolaboratif</strong> — terbuka bekerja sama dengan sesama guru, orang tua, dan komunitas untuk menciptakan ekosistem belajar yang sehat.</li>
+                        <li style="margin-bottom: 12px;"><strong>Rendah hati sebagai pelajar seumur hidup</strong> — menyadari bahwa menjadi guru terbaik adalah perjalanan, bukan tujuan akhir.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PEMBELAJARAN VIEW ================= -->
+        <section id="view-pembelajaran" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Praktik Mengajar Mandiri</h2>
+                    <p>Laporan Pelaksanaan Pembelajaran Struktural 4 Siklus</p>
+                </div>
+
+                <div class="cycle-tabs">
+                    <button class="tab-btn active" onclick="switchCycle('pembelajaran', 1)">Siklus 1 (Globalisasi)</button>
+                    <button class="tab-btn" onclick="switchCycle('pembelajaran', 2)">Siklus 2 (Kearifan Lokal)</button>
+                    <button class="tab-btn" onclick="switchCycle('pembelajaran', 3)">Siklus 3 (Uang & Lembaga)</button>
+                    <button class="tab-btn" onclick="switchCycle('pembelajaran', 4)">Siklus 4 (Masyarakat Jaringan)</button>
+                </div>
+
+                <!-- SIKLUS 1 PEMBELAJARAN -->
+                <div id="pembelajaran-s1" class="cycle-content">
+                    <div class="content-card">
+                        <h3>LAPORAN PRAKTIK MENGAJAR - SIKLUS 1</h3>
+                        <ul class="meta-list">
+                            <li><strong>Nama Mahasiswa:</strong> Ina Arifa</li>
+                            <li><strong>NIM:</strong> 25105260500</li>
+                            <li><strong>Prodi/Bidang Studi:</strong> Ilmu Pengetahuan Sosial</li>
+                            <li><strong>Sekolah PPL:</strong> SMP Negeri 15 Yogyakarta</li>
+                            <li><strong>Materi:</strong> Globalisasi</li>
+                            <li><strong>Kelas / Semester:</strong> IX / Ganjil – 2026/2027</li>
+                        </ul>
+                        <br>
+                        <h4>A. Deskripsi Kegiatan Praktik Mengajar</h4>
+                        <p>Kegiatan praktik mengajar dilaksanakan pada mata pelajaran IPS kelas IX semester gasal di SMP Negeri 15 Yogyakarta dengan materi globalisasi. Pembelajaran dirancang dalam dua pertemuan dengan alokasi waktu 4 JP, masing-masing pertemuan terdiri atas 80 menit. Kegiatan pembelajaran berfokus pada pemahaman konsep globalisasi, faktor pendorong terjadinya globalisasi, dampak positif dan negatif globalisasi, serta sikap bijak dalam menghadapi pengaruh globalisasi tanpa meninggalkan nilai-nilai budaya bangsa.</p>
+                        <p>Pada pertemuan pertama, kegiatan pembelajaran diawali dengan salam, doa, pengecekan kesiapan murid, pemberian motivasi, penyampaian tujuan pembelajaran, serta apersepsi mengenai materi perubahan sosial. Guru kemudian memberikan pertanyaan pemantik, yaitu mengapa murid lebih mengenal tren dance luar negeri atau artis K-Pop dibandingkan tarian daerah Indonesia. Pertanyaan tersebut digunakan untuk menghubungkan pengalaman sehari-hari murid dengan materi globalisasi. Selanjutnya, guru menayangkan video tentang pengaruh globalisasi dan budaya asing di Indonesia sebagai stimulus untuk mengidentifikasi permasalahan. Murid dibagi menjadi beberapa kelompok yang terdiri atas 4–5 orang untuk mengumpulkan informasi, mengerjakan LKPD, mendiskusikan hasil pengamatan, dan mempresentasikan hasil diskusi. Kegiatan diakhiri dengan penarikan kesimpulan, refleksi pembelajaran, kesempatan bertanya, dan penyampaian materi yang akan dipelajari selanjutnya.</p>
+                        <p>Pada pertemuan kedua, pembelajaran diawali dengan mengulas materi sebelumnya dan memberikan pertanyaan pemantik mengenai dampak apabila murid mengikuti semua tren luar negeri tanpa menyaringnya. Guru menggunakan gambar tentang dampak globalisasi untuk membantu murid memahami permasalahan yang dibahas. Murid kembali bekerja dalam kelompok untuk menganalisis studi kasus mengenai kecenderungan generasi muda mengenal budaya populer luar negeri dibandingkan budaya lokal. Melalui LKPD, murid diminta mengidentifikasi masalah, menjelaskan dampak positif dan negatif globalisasi budaya, serta merumuskan upaya agar tetap mengikuti perkembangan global sekaligus melestarikan budaya lokal. Hasil diskusi kemudian dipresentasikan dan dibahas bersama. Pada akhir pembelajaran, guru dan murid menyimpulkan materi, melakukan refleksi, serta melaksanakan asesmen untuk mengetahui pemahaman murid terhadap materi globalisasi.</p>
+                        <br>
+                        <h4>B. Strategi Pembelajaran yang Digunakan</h4>
+                        <p>Model pembelajaran yang digunakan adalah Problem Based Learning (PBL), yaitu pembelajaran yang menjadikan permasalahan sebagai titik awal untuk membangun pemahaman murid. Model ini dipilih karena materi globalisasi berkaitan erat dengan berbagai fenomena nyata yang dapat ditemukan dalam kehidupan sehari-hari.</p>
+                        <p>Penerapan PBL dalam rancangan pembelajaran dapat dilihat melalui lima tahapan berikut:</p>
+                        <ol style="padding-left: 20px;">
+                            <li><strong>Orientasi murid pada masalah.</strong> Guru menyajikan video, gambar, dan pertanyaan pemantik mengenai penyebaran budaya populer luar negeri serta pengaruhnya terhadap pengenalan budaya lokal. Tahap ini bertujuan membangun rasa ingin tahu dan mendorong murid mengidentifikasi masalah.</li>
+                            <li><strong>Mengorganisasikan murid untuk belajar.</strong> Guru membagi murid menjadi kelompok beranggotakan 4–5 orang dan mengarahkan kegiatan diskusi. Tahap ini bertujuan membangun kerja sama dan memberikan kesempatan kepada murid untuk belajar melalui interaksi dengan teman.</li>
+                            <li><strong>Membimbing penyelidikan individual maupun kelompok.</strong> Murid mengumpulkan informasi melalui buku, internet, koran, video, dan sumber lainnya, kemudian mengerjakan LKPD. Guru berperan sebagai fasilitator yang memberikan arahan dan membantu murid ketika mengalami kesulitan.</li>
+                            <li><strong>Mengembangkan dan menyajikan hasil.</strong> Murid menyusun hasil diskusi dan mempresentasikannya di depan kelas. Kegiatan ini bertujuan melatih komunikasi, tanggung jawab, dan kemampuan menyampaikan hasil analisis.</li>
+                            <li><strong>Menganalisis dan mengevaluasi proses pemecahan masalah.</strong> Guru bersama murid membahas hasil diskusi dan menarik kesimpulan. Namun, tahap evaluasi proses pemecahan masalah masih perlu diperjelas, misalnya dengan meminta murid menilai kelayakan solusi yang dihasilkan dan menjelaskan alasan pemilihan solusi tersebut.</li>
+                        </ol>
+                        <br>
+                        <h4>C. Analisis Kelebihan dan Kelemahan Desain Pembelajaran</h4>
+                        <p><strong>Kelebihan desain pembelajaran:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Materi pembelajaran kontekstual dan relevan.</li>
+                            <li>Model pembelajaran sesuai dengan karakteristik materi.</li>
+                            <li>Kegiatan pembelajaran mendorong partisipasi murid.</li>
+                            <li>Media pembelajaran bervariasi.</li>
+                            <li>Memuat penguatan sikap dan nilai budaya.</li>
+                        </ol>
+                        <br>
+                        <p><strong>Kelemahan desain pembelajaran:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Pengelolaan waktu berpotensi menjadi tantangan.</li>
+                            <li>Ketergantungan pada akses internet.</li>
+                            <li>Pertanyaan pemantik belum sepenuhnya menggali pengalaman semua murid.</li>
+                            <li>Kegiatan evaluasi pemecahan masalah belum mendalam.</li>
+                            <li>Kegiatan diskusi kelompok berpotensi didominasi oleh murid tertentu.</li>
+                        </ol>
+                        <br>
+                        <h4>D. Refleksi Pengalaman Mengajar</h4>
+                        <p>Berdasarkan pengalaman mengajar dan analisis desain pembelajaran IPS materi Globalisasi, saya menyadari bahwa pembelajaran yang baik perlu menghubungkan materi dengan kehidupan sehari-hari murid agar lebih menarik dan mudah dipahami. Penggunaan model Problem Based Learning (PBL), video, gambar, dan LKPD dapat membantu murid menganalisis permasalahan serta mendorong mereka untuk berdiskusi dan menyampaikan pendapat. Selain itu, pembelajaran ini juga memberikan kesempatan untuk menanamkan sikap bijak dalam menghadapi globalisasi tanpa meninggalkan budaya lokal.</p>
+                        <p>Namun, saya menyadari bahwa pelaksanaan pembelajaran masih memiliki tantangan, terutama dalam mengatur waktu, mengantisipasi kendala penggunaan teknologi, dan memastikan seluruh murid terlibat aktif dalam diskusi kelompok. Kegiatan evaluasi terhadap solusi yang dihasilkan murid juga perlu diperkuat agar mereka tidak hanya mampu menyampaikan kesimpulan, tetapi juga menjelaskan alasan dari solusi yang dipilih. Melalui refleksi ini, saya belajar bahwa guru perlu merancang pembelajaran secara matang, fleksibel, dan memperhatikan kebutuhan murid agar proses pembelajaran dapat berjalan lebih efektif dan bermakna.</p>
+                        <br>
+                        <h4>E. Rencana Perbaikan untuk Pembelajaran Mendatang</h4>
+                        <ol style="padding-left: 20px;">
+                            <li>Mengatur alokasi waktu pada setiap tahapan PBL agar kegiatan diskusi, presentasi, dan refleksi dapat terlaksana secara optimal.</li>
+                            <li>Menyiapkan media alternatif, seperti video yang telah diunduh atau materi cetak, untuk mengantisipasi kendala internet dan perangkat digital.</li>
+                            <li>Menggunakan pertanyaan pemantik yang lebih beragam agar sesuai dengan pengalaman dan kehidupan sehari-hari seluruh murid.</li>
+                            <li>Memperkuat kegiatan evaluasi dengan meminta murid membandingkan alternatif solusi serta menjelaskan alasan pemilihan solusi terbaik.</li>
+                            <li>Membagi peran anggota kelompok secara jelas agar setiap murid berpartisipasi aktif dan memiliki tanggung jawab dalam menyelesaikan tugas.</li>
+                        </ol>
+                        <br>
+                        <h4>F. Kesimpulan</h4>
+                        <p>Berdasarkan analisis dan refleksi pengalaman mengajar, desain pembelajaran IPS materi Globalisasi menggunakan model Problem Based Learning (PBL) memiliki kelebihan dalam mengaitkan materi dengan kehidupan sehari-hari, mendorong partisipasi murid, memanfaatkan media yang bervariasi, serta menanamkan sikap bijak dalam menghadapi pengaruh globalisasi. Namun, terdapat beberapa kelemahan yang perlu diperbaiki, yaitu pengelolaan waktu, ketergantungan pada teknologi, keterbatasan pertanyaan pemantik, kurang mendalamnya evaluasi solusi, dan kemungkinan adanya murid yang kurang aktif dalam diskusi kelompok. Oleh karena itu, pembelajaran mendatang perlu dirancang dengan alokasi waktu yang lebih efektif, media alternatif, pertanyaan yang lebih beragam, evaluasi pemecahan masalah yang lebih mendalam, dan pembagian peran kelompok yang jelas.</p>
+                    </div>
+                </div>
+
+                <!-- SIKLUS 2 PEMBELAJARAN -->
+                <div id="pembelajaran-s2" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>LAPORAN PRAKTIK MENGAJAR - SIKLUS 2</h3>
+                        <ul class="meta-list">
+                            <li><strong>Nama Mahasiswa:</strong> Ina Arifa</li>
+                            <li><strong>NIM:</strong> 25105260500</li>
+                            <li><strong>Prodi/Bidang Studi:</strong> Ilmu Pengetahuan Sosial</li>
+                            <li><strong>Sekolah PPL:</strong> SMP Negeri 15 Yogyakarta</li>
+                            <li><strong>Materi:</strong> Kearifan Lokal</li>
+                            <li><strong>Kelas / Semester:</strong> IX / Ganjil – 2026/2027</li>
+                        </ul>
+                        <br>
+                        <h4>A. Deskripsi Kegiatan Praktik Mengajar</h4>
+                        <p>Praktik mengajar dilaksanakan pada mata pelajaran IPS kelas IX di SMP Negeri 15 Yogyakarta dengan materi Kearifan Lokal, yang dibagi menjadi dua pertemuan. Pada pertemuan pertama, pembelajaran berfokus pada pengertian, ciri-ciri, dan bentuk kearifan lokal. Guru menayangkan video, menyampaikan materi pengantar, kemudian meminta murid mengidentifikasi contoh kearifan lokal secara individu dan mendiskusikannya secara berpasangan melalui LKPD. Hasil diskusi dipresentasikan dan ditanggapi bersama. Pada pertemuan kedua, pembelajaran berfokus pada fungsi kearifan lokal dan upaya pelestariannya di tengah globalisasi. Murid menyimak video, merancang upaya pelestarian kearifan lokal bersama pasangan, mengisi LKPD, dan mempresentasikan hasilnya. Pembelajaran diakhiri dengan penarikan kesimpulan dan refleksi.</p>
+                        <br>
+                        <h4>B. Strategi Pembelajaran yang Digunakan</h4>
+                        <p>Strategi pembelajaran yang digunakan adalah Think Pair Share (TPS), dengan tiga tahapan berikut:</p>
+                        <ul style="padding-left: 20px;">
+                            <li><strong>Think:</strong> Murid berpikir secara mandiri dan menuliskan jawaban berdasarkan pengetahuan serta pemahamannya.</li>
+                            <li><strong>Pair:</strong> Murid berdiskusi secara berpasangan untuk menyatukan gagasan dan menyelesaikan LKPD.</li>
+                            <li><strong>Share:</strong> Murid mempresentasikan hasil diskusi, menanggapi pendapat pasangan lain, dan memperoleh penguatan dari guru.</li>
+                        </ul>
+                        <br>
+                        <h4>C. Analisis Kelebihan dan Kelemahan Desain Pembelajaran</h4>
+                        <p><strong>Kelebihan Desain Pembelajaran:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Materi kontekstual dengan tradisi dan lingkungan sekitar.</li>
+                            <li>Model TPS memberikan kesempatan berpikir mandiri sebelum berdiskusi.</li>
+                            <li>Mendorong partisipasi aktif secara berpasangan.</li>
+                            <li>Media pembelajaran bervariasi (Video & LKPD).</li>
+                            <li>Menanamkan nilai budaya di tengah tantangan globalisasi.</li>
+                        </ol>
+                        <br>
+                        <p><strong>Kelemahan Desain Pembelajaran:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Alokasi waktu terbatas dalam 60 menit kegiatan inti.</li>
+                            <li>Ketergantungan pada sarana teknologi.</li>
+                            <li>Evaluasi solusi pelestarian kearifan lokal perlu diperkuat.</li>
+                        </ol>
+                        <br>
+                        <h4>D. Refleksi Pengalaman Mengajar</h4>
+                        <p>Melalui praktik mengajar ini, saya belajar bahwa penggunaan TPS dapat memberikan kesempatan kepada murid untuk berpikir mandiri sekaligus bertukar gagasan dengan teman. Materi yang dekat dengan kehidupan sehari-hari dan didukung video serta LKPD juga dapat membantu proses pemahaman. Namun, saya menyadari bahwa keberhasilan pembelajaran tidak hanya ditentukan oleh model dan media yang digunakan, tetapi juga oleh pengelolaan waktu, keterlibatan setiap murid, dan kedalaman diskusi. Oleh karena itu, saya perlu lebih memperhatikan proses diskusi, memastikan setiap murid berkontribusi, serta memberikan pertanyaan lanjutan agar murid mampu menjelaskan alasan dan menilai solusi yang mereka usulkan.</p>
+                        <br>
+                        <h4>E. Rencana Perbaikan Pembelajaran</h4>
+                        <ol style="padding-left: 20px;">
+                            <li>Mengatur waktu setiap tahapan TPS agar diskusi dan presentasi berjalan efektif.</li>
+                            <li>Menyiapkan media alternatif untuk mengantisipasi kendala teknologi.</li>
+                            <li>Memperdalam diskusi dengan meminta murid menilai kelayakan solusi pelestarian kearifan lokal.</li>
+                        </ol>
+                        <br>
+                        <h4>F. Kesimpulan</h4>
+                        <p>Praktik pembelajaran IPS materi Kearifan Lokal menggunakan model Think Pair Share (TPS) memberikan kesempatan kepada murid untuk berpikir mandiri, berdiskusi, menyampaikan pendapat, serta merancang upaya pelestarian budaya lokal. Melalui refleksi dan perbaikan berkelanjutan, saya berharap dapat mengembangkan pembelajaran yang lebih efektif, bermakna, dan sesuai dengan kebutuhan murid.</p>
+                    </div>
+                </div>
+
+                <!-- SIKLUS 3 PEMBELAJARAN -->
+                <div id="pembelajaran-s3" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>LAPORAN PRAKTIK MENGAJAR - SIKLUS 3</h3>
+                        <ul class="meta-list">
+                            <li><strong>Nama Mahasiswa:</strong> Ina Arifa</li>
+                            <li><strong>NIM:</strong> 25105260500</li>
+                            <li><strong>Prodi/Bidang Studi:</strong> Ilmu Pengetahuan Sosial</li>
+                            <li><strong>Sekolah PPL:</strong> SMP Negeri 15 Yogyakarta</li>
+                            <li><strong>Materi:</strong> Uang dan Lembaga Keuangan</li>
+                            <li><strong>Kelas / Semester:</strong> IX / Ganjil – 2026/2027</li>
+                        </ul>
+                        <br>
+                        <h4>A. Deskripsi Kegiatan Praktik Mengajar</h4>
+                        <p>Kegiatan praktik mengajar Siklus 3 dilaksanakan di kelas IX SMP Negeri 15 Yogyakarta pada mata pelajaran IPS dengan materi pokok “Uang dan Lembaga Keuangan”. Pembelajaran dirancang sebanyak tiga pertemuan (6 x 40 menit) dengan menerapkan model Think Pair Share (TPS) yang mengintegrasikan dimensi profil lulusan penalaran kritis, kreativitas, kolaborasi, kemandirian, dan komunikasi.</p>
+                        <p><strong>Pertemuan 1:</strong> Berfokus pada pengertian uang, kelemahan sistem barter, tahapan sejarah uang, dan syarat uang. Diawali pertanyaan pemantik: “Bagaimana kehidupan manusia jika di dunia ini tidak ada uang?”. Murid menyimak video, menulis jawaban mandiri, berdiskusi berpasangan pada LKPD, dan mempresentasikan hasilnya.</p>
+                        <p><strong>Pertemuan 2:</strong> Analisis fungsi asli & turunan uang serta klasifikasi jenis uang. Pertanyaan pemantik: “Dalam kehidupan sehari-hari, untuk apa saja kita menggunakan uang, dan apakah semua uang yang kita gunakan memiliki bentuk dan jenis yang sama?”. Murid mengamati 4 situasi penggunaan uang dan berdiskusi secara TPS.</p>
+                        <p><strong>Pertemuan 3:</strong> Pengertian & jenis lembaga keuangan bank dan nonbank serta budaya menabung. Pertanyaan pemantik: “Siapa di sini yang sudah menabung di bank?”. Murid mengamati gambar aktivitas perbankan lalu menyelesaikan tahapan TPS hingga penguatan konsep oleh guru.</p>
+                        <br>
+                        <h4>B. Strategi Pembelajaran yang Digunakan</h4>
+                        <p>Menggunakan model Think Pair Share (TPS) kooperatif Frank Lyman. Dipilih karena materi uang & lembaga keuangan bersifat konseptual dan dekat dengan keseharian murid (menabung, transaksi digital). Pembagian pasangan 2 orang terbukti lebih efisien dan memberikan ruang bicara maksimal bagi setiap peserta didik.</p>
+                        <br>
+                        <h4>C. Analisis Kelebihan dan Kelemahan Desain Pembelajaran</h4>
+                        <p><strong>Kelebihan:</strong> Penerapan alur TPS konsisten, stimulus media visual/video menarik, pertanyaan pemantik kontekstual, serta penguatan langsung meluruskan miskonsepsi.</p>
+                        <p><strong>Kelemahan:</strong> Alokasi waktu terbatas untuk seluruh pasangan tampil, materi lembaga keuangan yang padat belum didukung simulasi nyata, serta perlunya ekstra pengkondisian kelas saat diskusi serentak.</p>
+                        <br>
+                        <h4>D. Refleksi Pengalaman Mengajar</h4>
+                        <p>Model TPS membantu murid terlibat aktif dan berpikir kritis. Tantangan terbesar ada pada keterbatasan alokasi waktu presentasi dan materi yang padat sehingga menuntut pengawasan keliling yang lebih intensif selama sesi kerja kelompok.</p>
+                        <br>
+                        <h4>E. Rencana Perbaikan untuk Pembelajaran Mendatang</h4>
+                        <ol style="padding-left: 20px;">
+                            <li>Menetapkan durasi ketat pada alur TPS dan menggunakan sistem pergantian pasangan presentasi terpilih.</li>
+                            <li>Menambahkan simulasi fisik/kartu pencocokan jenis lembaga keuangan.</li>
+                            <li>Menyusun petunjuk LKPD yang lebih eksplisit dan lembar observasi kerja.</li>
+                        </ol>
+                        <br>
+                        <h4>F. Kesimpulan</h4>
+                        <p>Penerapan TPS pada materi Uang dan Lembaga Keuangan berhasil meningkatkan partisipasi dan daya nalar murid. Perbaikan alokasi waktu dan media simulasi akan menjadi fokus peningkatan di siklus mendatang.</p>
+                    </div>
+                </div>
+
+                <!-- SIKLUS 4 PEMBELAJARAN -->
+                <div id="pembelajaran-s4" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>LAPORAN PRAKTIK MENGAJAR - SIKLUS 4</h3>
+                        <ul class="meta-list">
+                            <li><strong>Nama Mahasiswa:</strong> Ina Arifa</li>
+                            <li><strong>NIM:</strong> 25105260500</li>
+                            <li><strong>Prodi/Bidang Studi:</strong> Ilmu Pengetahuan Sosial</li>
+                            <li><strong>Sekolah PPL:</strong> SMP Negeri 15 Yogyakarta</li>
+                            <li><strong>Materi:</strong> Masyarakat Jaringan (Network Society)</li>
+                            <li><strong>Kelas / Semester:</strong> IX / Ganjil – 2026/2027</li>
+                        </ul>
+                        <br>
+                        <h4>A. Deskripsi Kegiatan Praktik Mengajar</h4>
+                        <p>Praktik mengajar dilaksanakan pada mata pelajaran IPS Kelas IX di SMP Negeri 15 Yogyakarta dengan materi utama "Masyarakat Jaringan (Network Society)" selama 2 pertemuan (2x40 menit). Pertemuan pertama berfokus pada konsep dasar, ciri masyarakat jaringan, perubahan pola interaksi ke digital, dan dampak positif-negatifnya. Pertemuan kedua berfokus pada etika digital berbasis pilar <strong>Respect, Educate, dan Protect</strong> melalui studi kasus isu sosial-digital.</p>
+                        <br>
+                        <h4>B. Strategi Pembelajaran yang Digunakan</h4>
+                        <p>Model Problem Based Learning (PBL) 5 sintaks: Orientasi masalah (hoaks, cyberbullying, gawai) -> Mengorganisasi murid -> Membimbing penyelidikan -> Menyajikan hasil -> Menganalisis & mengevaluasi. Didukung tayangan LCD projector dan diskusi kelompok pada LKPD.</p>
+                        <br>
+                        <h4>C. Analisis Kelebihan dan Kelemahan Desain Pembelajaran</h4>
+                        <p><strong>Kelebihan:</strong> Sangat relevan dengan kehidupan abad ke-21, membentuk kewargaan digital (Digital Citizenship) secara kontekstual, serta instrumen asesmen lengkap (Diagnostik, Proses, Sumatif).</p>
+                        <p><strong>Kelemahan:</strong> Alokasi waktu ketat untuk 5 sintaks utuh, penggunaan platform kolaborasi digital interaktif masih minim (masih LKPD kertas), serta asesmen sikap akhir yang masih didominasi tes tertulis.</p>
+                        <br>
+                        <h4>D. Refleksi Pengalaman Mengajar</h4>
+                        <p>Antusiasme murid sangat tinggi karena materi berhubungan langsung dengan aktivitas gawai harian mereka. Namun, tempo pembelajaran terasa melaju kencang akibat waktu yang terbatas dan potensi digital murid belum terekspos penuh karena penggunaan media cetak.</p>
+                        <br>
+                        <h4>E. Rencana Perbaikan untuk Pembelajaran Mendatang</h4>
+                        <ol style="padding-left: 20px;">
+                            <li>Manajemen waktu PBL yang lebih rigid.</li>
+                            <li>Integrasi alat kolaborasi digital langsung seperti Padlet atau Google Docs.</li>
+                            <li>Mengembangkan instrumen penilaian unjuk kerja afektif etika digital murid.</li>
+                        </ol>
+                        <br>
+                        <h4>F. Kesimpulan</h4>
+                        <p>Perencanaan pembelajaran terstruktur dengan baik dan terbukti efektif menumbuhkan kesadaran etika berinternet secara bijak. Penggunaan media digital interaktif menjadi rekomendasi utama perbaikan selanjutnya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ARTEFAK VIEW ================= -->
+        <section id="view-artefak" class="page-view">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Artefak Pembelajaran</h2>
+                    <p>Kumpulan Karya, Dokumen Pendukung, dan Analisis Desain Pembelajaran</p>
+                </div>
+
+                <div class="cycle-tabs">
+                    <button class="tab-btn active" onclick="switchCycle('artefak', 1)">Artefak Siklus 1</button>
+                    <button class="tab-btn" onclick="switchCycle('artefak', 2)">Artefak Siklus 2</button>
+                    <button class="tab-btn" onclick="switchCycle('artefak', 3)">Artefak Siklus 3</button>
+                    <button class="tab-btn" onclick="switchCycle('artefak', 4)">Artefak Siklus 4</button>
+                </div>
+
+                <!-- ARTEFAK SIKLUS 1 -->
+                <div id="artefak-s1" class="cycle-content">
+                    <div class="content-card">
+                        <h3>SIKLUS 1 PRAKTIK MENGAJAR MANDIRI (GLOBALISASI)</h3>
+                        <p>Refleksi Singkat Desain Pembelajaran: Mampu mengaitkan fenomena globalisasi secara kontekstual namun perlu optimalisasi pengelolaan waktu saat presentasi kelompok.</p>
+                        <div class="artifact-grid">
+                            <a href="https://docs.google.com/presentation/d/1RitgDa85Nm28bFUbxbG1DutBK8RYgyBP/edit?slide=id.p20#slide=id.p20" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-powerpoint"></i> Implementasi Media / PPT
+                            </a>
+                            <a href="https://drive.google.com/file/d/1HBdjRT9zABo61v5cbAmLbO9h3G5j6yyi/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-pdf"></i> Rencana Pembelajaran (RPM)
+                            </a>
+                            <a href="https://drive.google.com/file/d/17bISvdCy3dick2SE0qIpQRaZiGv73Ig4/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-lines"></i> Hasil Kerja Murid (LKPD)
+                            </a>
+                            <a href="https://drive.google.com/drive/folders/13XOCNdB9VjB-qq08MQM9XACZ6AvPWLEs?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-folder-open"></i> Dokumentasi Pelaksanaan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTEFAK SIKLUS 2 -->
+                <div id="artefak-s2" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>SIKLUS 2 PRAKTIK MENGAJAR MANDIRI (KEARIFAN LOKAL)</h3>
+                        <p>Refleksi Singkat Desain Pembelajaran: Model Think Pair Share efektif mendorong kemandirian berpikir dan rasa bangga terhadap tradisi lokal.</p>
+                        <div class="artifact-grid">
+                            <a href="https://docs.google.com/presentation/d/161jrmWJNeLVHuwk4yaSS1YdNp7fkRtVz/edit?usp=sharing&ouid=107783513262739695479&rtpof=true&sd=true" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-powerpoint"></i> Implementasi Media / PPT
+                            </a>
+                            <a href="https://drive.google.com/file/d/1vHwV45JE-VaDKe34_TMyIoA6RcPbj6Gw/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-pdf"></i> Rencana Pembelajaran (RPM)
+                            </a>
+                            <a href="https://drive.google.com/file/d/1QD8jwetCJDdMFHgJJMGrKT5IK9-6ALKt/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-lines"></i> Hasil Kerja Murid (LKPD)
+                            </a>
+                            <a href="https://drive.google.com/drive/folders/11Cn4eErzqaq0D3JLPFnnp8jmde8rngTr?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-folder-open"></i> Dokumentasi Pelaksanaan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTEFAK SIKLUS 3 -->
+                <div id="artefak-s3" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>SIKLUS 3 PRAKTIK MENGAJAR MANDIRI (UANG DAN LEMBAGA KEAUNGEN)</h3>
+                        <p>Refleksi Singkat Desain Pembelajaran: Mampu meluruskan miskonsepsi perbankan melalui stimulus gambar visual, namun butuh penguatan berupa media simulasi.</p>
+                        <div class="artifact-grid">
+                            <a href="https://docs.google.com/presentation/d/1eO0lbe5i3gLoX06J4u25hgLdMX3xHwRq/edit?usp=sharing&ouid=107783513262739695479&rtpof=true&sd=true" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-powerpoint"></i> Implementasi Media / PPT
+                            </a>
+                            <a href="https://drive.google.com/file/d/1qDr7SV5exVM_a5-oKao58OCnLNuFrxQv/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-pdf"></i> Rencana Pembelajaran (RPM)
+                            </a>
+                            <a href="https://drive.google.com/file/d/1bKxxd-CEDEZssKMd1LfrZBm_d3WS5T1n/view?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-lines"></i> Hasil Kerja Murid (LKPD)
+                            </a>
+                            <a href="https://drive.google.com/drive/folders/1BYg6JDWIQuDFW6-RqVscd2iVTmBYOjr7?usp=sharing" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-folder-open"></i> Dokumentasi Pelaksanaan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTEFAK SIKLUS 4 -->
+                <div id="artefak-s4" class="cycle-content" style="display:none;">
+                    <div class="content-card">
+                        <h3>SIKLUS 4 PRAKTIK MENGAJAR MANDIRI (MASYARAKAT JARINGAN)</h3>
+                        <p>Refleksi Singkat Desain Pembelajaran: Penanaman etika Respect, Educate, Protect berjalan baik dan relevan dengan gaya hidup murid.</p>
+                        <div class="artifact-grid">
+                            <a href="https://docs.google.com/presentation/d/1RM2pG0qubNC8dl2kJNeqauoIegNSq0dK/edit?usp=sharing&ouid=107783513262739695479&rtpof=true&sd=true" target="_blank" class="artifact-link">
+                                <i class="fa-solid fa-file-powerpoint"></i> Implementasi Media / PPT
+                            </a>
+                            <a href="
